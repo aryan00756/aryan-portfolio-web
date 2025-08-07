@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Send, Copy, Check } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, Send, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -24,13 +24,6 @@ const Contact = () => {
       value: "aryan.yadav@example.com",
       href: "mailto:aryan.yadav@example.com",
       copyable: true
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      label: "Phone",
-      value: "+91 XXXXX XXXXX",
-      href: "tel:+91XXXXXXXXX",
-      copyable: false
     },
     {
       icon: <MapPin className="w-6 h-6" />,
