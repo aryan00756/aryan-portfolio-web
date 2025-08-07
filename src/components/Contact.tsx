@@ -46,12 +46,6 @@ const Contact = () => {
       label: "LinkedIn",
       href: "https://linkedin.com",
       color: "hover:text-neural"
-    },
-    {
-      icon: <Mail className="w-6 h-6" />,
-      label: "Email",
-      href: "mailto:ay6033756@gmail.com",
-      color: "hover:text-secondary"
     }
   ];
 
