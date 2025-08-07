@@ -21,8 +21,8 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       label: "Email",
-      value: "aryan.yadav@example.com",
-      href: "mailto:aryan.yadav@example.com",
+      value: "ay6033756@gmail.com",
+      href: "mailto:ay6033756@gmail.com",
       copyable: true
     },
     {
@@ -50,7 +50,7 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       label: "Email",
-      href: "mailto:aryan.yadav@example.com",
+      href: "mailto:ay6033756@gmail.com",
       color: "hover:text-secondary"
     }
   ];
