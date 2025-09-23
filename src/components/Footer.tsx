@@ -31,25 +31,25 @@ const Footer = () => {
 
   return (
     <footer className="py-12 bg-card/30 backdrop-blur-sm border-t border-border">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between">
           {/* Left side - Name and tagline */}
-          <div className="text-center md:text-left mb-6 md:mb-0">
-            <h3 className="text-2xl font-bold text-gradient-primary mb-2">
+          <div className="text-center md:text-left mb-4 sm:mb-6 md:mb-0">
+            <h3 className="text-xl sm:text-2xl font-bold text-gradient-primary mb-1 sm:mb-2">
               Aryan Yadav
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               Building the future with AI & innovative web solutions
             </p>
           </div>
 
           {/* Center - Navigation Links */}
-          <nav className="hidden md:flex gap-8 mb-6 md:mb-0">
+          <nav className="hidden md:flex gap-4 lg:gap-8 mb-4 sm:mb-6 md:mb-0">
             {['Home', 'About', 'Skills', 'Services', 'Projects', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(`#${item.toLowerCase()}`)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors duration-300"
               >
                 {item}
               </button>
@@ -57,13 +57,13 @@ const Footer = () => {
           </nav>
 
           {/* Right side - Social links */}
-          <div className="flex gap-3">
+          <div className="flex gap-2 sm:gap-3">
             {socialLinks.map((social) => (
               <Button
                 key={social.label}
                 variant="ghost"
                 size="icon"
-                className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
+                className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 h-9 w-9 sm:h-10 sm:w-10"
                 asChild
               >
                 <a 
@@ -72,20 +72,22 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label={social.label}
                 >
-                  {social.icon}
+                  <div className="w-4 h-4 sm:w-5 sm:h-5">
+                    {social.icon}
+                  </div>
                 </a>
               </Button>
             ))}
           </div>
         </div>
 
-        <div className="border-t border-border/50 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground">
-            <p className="mb-4 md:mb-0">
+        <div className="border-t border-border/50 mt-6 sm:mt-8 pt-6 sm:pt-8">
+          <div className="flex flex-col md:flex-row items-center justify-between text-xs sm:text-sm text-muted-foreground">
+            <p className="mb-2 sm:mb-4 md:mb-0">
               © {currentYear} Aryan Yadav. All rights reserved.
             </p>
             <p className="flex items-center gap-1">
-              Built with <Heart className="w-4 h-4 text-red-500" /> using React & TypeScript
+              Built with <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-red-500" /> using React & TypeScript
             </p>
           </div>
         </div>

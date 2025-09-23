@@ -103,22 +103,22 @@ const Projects = () => {
       id="projects"
       className="py-20 bg-gradient-to-b from-card/50 to-background"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`text-center mb-16 transition-all duration-1000 ${
+          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
             Featured <span className="text-gradient-primary">Projects</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             Showcasing innovative solutions that demonstrate the intersection of 
             machine learning, artificial intelligence, and modern web technologies.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <Card
               key={project.title}
@@ -127,39 +127,41 @@ const Projects = () => {
               }`}
               style={{ animationDelay: `${index * 200}ms` }}
             >
-              <CardHeader>
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`inline-flex p-3 rounded-lg ${getColorClass(project.color)}`}>
-                    {project.icon}
+              <CardHeader className="p-4 sm:p-6">
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  <div className={`inline-flex p-2 sm:p-3 rounded-lg ${getColorClass(project.color)}`}>
+                    <div className="w-6 h-6 sm:w-8 sm:h-8">
+                      {project.icon}
+                    </div>
                   </div>
                   <div className="flex gap-2">
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="text-muted-foreground hover:text-primary"
+                      className="text-muted-foreground hover:text-primary h-8 w-8 sm:h-10 sm:w-10"
                       asChild
                     >
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-5 h-5" />
+                        <Github className="w-4 h-4 sm:w-5 sm:h-5" />
                       </a>
                     </Button>
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="text-muted-foreground hover:text-primary"
+                      className="text-muted-foreground hover:text-primary h-8 w-8 sm:h-10 sm:w-10"
                       asChild
                     >
                       <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-5 h-5" />
+                        <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
                       </a>
                     </Button>
                   </div>
                 </div>
                 
-                <CardTitle className="text-xl mb-3">{project.title}</CardTitle>
-                <p className="text-muted-foreground mb-4">{project.description}</p>
+                <CardTitle className="text-lg sm:text-xl mb-2 sm:mb-3">{project.title}</CardTitle>
+                <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                   {project.technologies.map((tech) => (
                     <Badge
                       key={tech}
@@ -172,35 +174,35 @@ const Projects = () => {
                 </div>
               </CardHeader>
               
-              <CardContent>
-                <div className="space-y-2 mb-6">
-                  <h4 className="font-semibold text-sm mb-2">Key Features:</h4>
+              <CardContent className="p-4 sm:p-6 pt-0">
+                <div className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
+                  <h4 className="font-semibold text-xs sm:text-sm mb-1 sm:mb-2">Key Features:</h4>
                   {project.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    <div key={featureIndex} className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
                       {feature}
                     </div>
                   ))}
                 </div>
                 
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                   <Button
                     variant="outline"
-                    className="flex-1 group-hover:border-primary group-hover:text-primary transition-all duration-300"
+                    className="flex-1 group-hover:border-primary group-hover:text-primary transition-all duration-300 text-xs sm:text-sm"
                     asChild
                   >
                     <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
+                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                       Live Demo
                     </a>
                   </Button>
                   <Button
                     variant="outline"
-                    className="flex-1 group-hover:border-neural group-hover:text-neural transition-all duration-300"
+                    className="flex-1 group-hover:border-neural group-hover:text-neural transition-all duration-300 text-xs sm:text-sm"
                     asChild
                   >
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-2" />
+                      <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                       Source Code
                     </a>
                   </Button>
@@ -212,23 +214,23 @@ const Projects = () => {
 
         {/* Additional Projects Section */}
         <div
-          className={`text-center mt-16 transition-all duration-1000 delay-500 ${
+          className={`text-center mt-12 sm:mt-16 transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="bg-gradient-glow rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">More Projects Coming Soon!</h3>
-            <p className="text-muted-foreground mb-6">
+          <div className="bg-gradient-glow rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">More Projects Coming Soon!</h3>
+            <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
               I'm constantly working on new projects and experimenting with cutting-edge technologies. 
               Follow my GitHub to stay updated with the latest developments.
             </p>
             <Button
               variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm"
               asChild
             >
               <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4 mr-2" />
+                <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                 View All Projects
               </a>
             </Button>

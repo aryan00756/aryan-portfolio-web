@@ -120,22 +120,22 @@ const Skills = () => {
       id="skills"
       className="py-20 bg-gradient-to-b from-card/50 to-background"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`text-center mb-16 transition-all duration-1000 ${
+          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
             Skills & <span className="text-gradient-primary">Expertise</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             A comprehensive toolkit spanning machine learning, web development, 
             and emerging technologies to build innovative solutions.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {skillCategories.map((category, categoryIndex) => (
             <Card
               key={category.title}
@@ -144,18 +144,20 @@ const Skills = () => {
               }`}
               style={{ animationDelay: `${categoryIndex * 150}ms` }}
             >
-              <CardContent className="p-6">
-                <div className={`inline-flex p-3 rounded-lg mb-4 ${getColorClass(category.color)}`}>
-                  {category.icon}
+              <CardContent className="p-4 sm:p-6">
+                <div className={`inline-flex p-2 sm:p-3 rounded-lg mb-3 sm:mb-4 ${getColorClass(category.color)}`}>
+                  <div className="w-6 h-6 sm:w-8 sm:h-8">
+                    {category.icon}
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-6">{category.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">{category.title}</h3>
                 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {category.skills.map((skill, skillIndex) => (
                     <div key={skill.name} className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium">{skill.name}</span>
-                        <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                        <span className="text-xs sm:text-sm font-medium">{skill.name}</span>
+                        <span className="text-xs sm:text-sm text-muted-foreground">{skill.level}%</span>
                       </div>
                       <Progress
                         value={progressValues[`${category.title}-${skill.name}`] || 0}
@@ -175,14 +177,14 @@ const Skills = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h3 className="text-2xl font-bold text-center mb-8">
+          <h3 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8">
             Technologies I <span className="text-gradient-neural">Work With</span>
           </h3>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
             {['Python', 'React', 'TypeScript', 'TensorFlow', 'Node.js', 'OpenCV', 'Java', 'MongoDB'].map((tech, index) => (
               <div
                 key={tech}
-                className="px-4 py-2 bg-muted/50 rounded-full text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 cursor-default"
+                className="px-3 py-1.5 sm:px-4 sm:py-2 bg-muted/50 rounded-full text-xs sm:text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 cursor-default"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {tech}
