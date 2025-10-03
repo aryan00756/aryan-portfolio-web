@@ -229,7 +229,7 @@ const Projects = () => {
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm"
               asChild
             >
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="http://github.com/aryan00756" target="_blank" rel="noopener noreferrer">
                 <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                 View All Projects
               </a>

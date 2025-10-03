@@ -95,7 +95,7 @@ const Hero = () => {
                 className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
                 asChild
               >
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <a href="http://github.com/aryan00756" target="_blank" rel="noopener noreferrer">
                   <Github className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               </Button>
@@ -105,7 +105,7 @@ const Hero = () => {
                 className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
                 asChild
               >
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/aryan0203" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               </Button>
