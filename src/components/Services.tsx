@@ -36,13 +36,13 @@ const Services = () => {
     },
     {
       icon: <Globe className="w-8 h-8" />,
-      title: "Full Stack Web Services",
+      title: "Frontend Web Services",
       description: "Modern, responsive web applications built with cutting-edge technologies and best practices.",
       features: [
-        "React & Next.js development",
-        "Backend API development",
-        "Database design & optimization",
-        "Cloud deployment & hosting"
+        "React development",
+        "Responsive UI/UX design",
+        "HTML, CSS & JavaScript",
+        "Performance optimization"
       ],
       color: "secondary",
       gradient: "bg-secondary"

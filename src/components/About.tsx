@@ -39,12 +39,12 @@ const About = () => {
     },
     {
       year: '2022',
-      title: 'Full Stack Development',
+      title: 'Frontend Development',
       description: 'Mastered modern web development technologies',
       icon: <Code className="w-6 h-6" />,
     },
     {
-      year: '2021',
+      year: '2023',
       title: 'Computer Vision',
       description: 'Explored computer vision applications and implementations',
       icon: <Eye className="w-6 h-6" />,
@@ -99,7 +99,7 @@ const About = () => {
               <CardContent className="p-4 sm:p-6">
                 <p className="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
                   I am a passionate <span className="text-primary font-semibold">Machine Learning and Generative AI Engineer</span>, 
-                  with a strong foundation in <span className="text-neural font-semibold">Fullstack Web Development</span>. 
+                  with a strong foundation in <span className="text-neural font-semibold">Frontend Web Development</span>. 
                   I am driven by a curiosity to build intelligent systems and user-friendly digital experiences.
                 </p>
                 <p className="text-sm sm:text-base text-muted-foreground">
