@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Code, Brain, Eye, Database, Globe, Zap } from 'lucide-react';
+import { Code, Brain, Eye, Database, Globe } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
@@ -28,18 +28,17 @@ const Skills = () => {
         { name: "Java", level: 85 },
         { name: "Python", level: 90 },
         { name: "JavaScript", level: 80 },
-        { name: "TypeScript", level: 75 },
       ]
     },
     {
       icon: <Globe className="w-8 h-8" />,
-      title: "Full Stack Development",
+      title: "Frontend Development",
       color: "secondary",
       skills: [
-        { name: "React", level: 85 },
-        { name: "Node.js", level: 80 },
-        { name: "Next.js", level: 75 },
-        { name: "Express", level: 80 },
+        { name: "HTML", level: 90 },
+        { name: "CSS", level: 85 },
+        { name: "JavaScript", level: 80 },
+        { name: "React", level: 75 },
       ]
     },
     {
@@ -62,17 +61,6 @@ const Skills = () => {
         { name: "Algorithms", level: 80 },
         { name: "MongoDB", level: 75 },
         { name: "SQL", level: 80 },
-      ]
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Tools & Frameworks",
-      color: "secondary",
-      skills: [
-        { name: "Git", level: 85 },
-        { name: "Docker", level: 70 },
-        { name: "AWS", level: 65 },
-        { name: "Firebase", level: 75 },
       ]
     },
   ];
@@ -181,7 +169,7 @@ const Skills = () => {
             Technologies I <span className="text-gradient-neural">Work With</span>
           </h3>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
-            {['Python', 'C', 'Java', 'HTML', 'CSS', 'JavaScript', 'SQL', 'TensorFlow', 'OpenCV', 'Scikit-learn', 'Pandas', 'Git', 'Github', 'Numpy', 'Matplotlib'].map((tech, index) => (
+            {['Python', 'Java', 'HTML', 'CSS', 'JavaScript', 'SQL', 'TensorFlow', 'OpenCV', 'Scikit-learn', 'Pandas', 'Git', 'Github', 'Numpy', 'Matplotlib'].map((tech, index) => (
               <div
                 key={tech}
                 className="px-3 py-1.5 sm:px-4 sm:py-2 bg-muted/50 rounded-full text-xs sm:text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 cursor-default"
