@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Footer = () => {
@@ -85,9 +85,6 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between text-xs sm:text-sm text-muted-foreground">
             <p className="mb-2 sm:mb-4 md:mb-0">
               © {currentYear} Aryan Yadav. All rights reserved.
-            </p>
-            <p className="flex items-center gap-1">
-              Built with <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-red-500" /> using React & TypeScript
             </p>
           </div>
         </div>
