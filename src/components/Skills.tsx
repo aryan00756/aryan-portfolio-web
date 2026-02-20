@@ -169,7 +169,7 @@ const Skills = () => {
             Technologies I <span className="text-gradient-neural">Work With</span>
           </h3>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
-            {['Python', 'Java', 'HTML', 'CSS', 'JavaScript', 'SQL', 'TensorFlow', 'OpenCV', 'Scikit-learn', 'Pandas', 'Git', 'Github', 'Numpy', 'Matplotlib'].map((tech, index) => (
+            {['Python', 'Java', 'HTML', 'CSS', 'JavaScript', 'SQL', 'OpenCV', 'YOLO', 'MediaPipe', 'CVzone', 'Scikit-Learn', 'NLP', 'TensorFlow', 'Keras', 'TensorBoard', 'Pandas', 'NumPy', 'Matplotlib', 'Neural Network', 'CNN', 'RNN', 'LSTM', 'GRU', 'Streamlit', 'Git', 'GitHub'].map((tech, index) => (
               <div
                 key={tech}
                 className="px-3 py-1.5 sm:px-4 sm:py-2 bg-muted/50 rounded-full text-xs sm:text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 cursor-default"
