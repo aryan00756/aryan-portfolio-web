@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroBackground from '@/assets/hero-background.jpg';
 import profileImage from '@/assets/aryan-profile.jpg';
@@ -84,6 +84,17 @@ const Hero = () => {
                 onClick={() => scrollToSection('#contact')}
               >
                 Contact Me
+              </Button>
+              <Button
+                size="lg"
+                variant="secondary"
+                className="w-full sm:w-auto gap-2"
+                asChild
+              >
+                <a href="/resume.pdf" download="Aryan_Yadav_Resume.pdf">
+                  <Download className="w-4 h-4" />
+                  Download CV
+                </a>
               </Button>
             </div>
 
