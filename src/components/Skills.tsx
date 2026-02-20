@@ -1,10 +1,11 @@
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { Code, Brain, Eye, Database, Globe } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
+import { fadeInUp, staggerContainer, viewportOptions } from '@/lib/animations';
 
 const Skills = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [progressValues, setProgressValues] = useState<{ [key: string]: number }>({});
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -69,9 +70,6 @@ const Skills = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          
-          // Animate progress bars
           setTimeout(() => {
             const newProgressValues: { [key: string]: number } = {};
             skillCategories.forEach(category => {
@@ -103,16 +101,14 @@ const Skills = () => {
   };
 
   return (
-    <section
-      ref={sectionRef}
-      id="skills"
-      className="py-20 bg-gradient-to-b from-card/50 to-background"
-    >
+    <section ref={sectionRef} id="skills" className="py-20 bg-gradient-to-b from-card/50 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        <motion.div
+          className="text-center mb-12 sm:mb-16"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
             Skills & <span className="text-gradient-primary">Expertise</span>
@@ -121,65 +117,72 @@ const Skills = () => {
             A comprehensive toolkit spanning machine learning, web development, 
             and emerging technologies to build innovative solutions.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
-          {skillCategories.map((category, categoryIndex) => (
-            <Card
-              key={category.title}
-              className={`hover-lift transition-all duration-500 bg-card/50 backdrop-blur-sm border-primary/10 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ animationDelay: `${categoryIndex * 150}ms` }}
-            >
-              <CardContent className="p-4 sm:p-6">
-                <div className={`inline-flex p-2 sm:p-3 rounded-lg mb-3 sm:mb-4 ${getColorClass(category.color)}`}>
-                  <div className="w-6 h-6 sm:w-8 sm:h-8">
-                    {category.icon}
+        <motion.div
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+        >
+          {skillCategories.map((category) => (
+            <motion.div key={category.title} variants={fadeInUp}>
+              <Card className="hover-lift transition-all duration-500 bg-card/50 backdrop-blur-sm border-primary/10 h-full">
+                <CardContent className="p-4 sm:p-6">
+                  <div className={`inline-flex p-2 sm:p-3 rounded-lg mb-3 sm:mb-4 ${getColorClass(category.color)}`}>
+                    <div className="w-6 h-6 sm:w-8 sm:h-8">{category.icon}</div>
                   </div>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">{category.title}</h3>
-                
-                <div className="space-y-3 sm:space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skill.name} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs sm:text-sm font-medium">{skill.name}</span>
-                        <span className="text-xs sm:text-sm text-muted-foreground">{skill.level}%</span>
+                  <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">{category.title}</h3>
+                  <div className="space-y-3 sm:space-y-4">
+                    {category.skills.map((skill) => (
+                      <div key={skill.name} className="space-y-2">
+                        <div className="flex justify-between items-center">
+                          <span className="text-xs sm:text-sm font-medium">{skill.name}</span>
+                          <span className="text-xs sm:text-sm text-muted-foreground">{skill.level}%</span>
+                        </div>
+                        <Progress
+                          value={progressValues[`${category.title}-${skill.name}`] || 0}
+                          className="h-2"
+                        />
                       </div>
-                      <Progress
-                        value={progressValues[`${category.title}-${skill.name}`] || 0}
-                        className="h-2"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Tech Stack Icons */}
-        <div
-          className={`mt-16 transition-all duration-1000 delay-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        <motion.div
+          className="mt-16"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
         >
           <h3 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8">
             Technologies I <span className="text-gradient-neural">Work With</span>
           </h3>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
-            {['Python', 'Java', 'HTML', 'CSS', 'JavaScript', 'SQL', 'OpenCV', 'YOLO', 'MediaPipe', 'CVzone', 'Scikit-Learn', 'NLP', 'TensorFlow', 'Keras', 'TensorBoard', 'Pandas', 'NumPy', 'Matplotlib', 'Neural Network', 'CNN', 'RNN', 'LSTM', 'GRU', 'Streamlit', 'Git', 'GitHub'].map((tech, index) => (
-              <div
+          <motion.div
+            className="flex flex-wrap justify-center gap-2 sm:gap-4"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+          >
+            {['Python', 'Java', 'HTML', 'CSS', 'JavaScript', 'SQL', 'OpenCV', 'YOLO', 'MediaPipe', 'CVzone', 'Scikit-Learn', 'NLP', 'TensorFlow', 'Keras', 'TensorBoard', 'Pandas', 'NumPy', 'Matplotlib', 'Neural Network', 'CNN', 'RNN', 'LSTM', 'GRU', 'Streamlit', 'Git', 'GitHub'].map((tech) => (
+              <motion.div
                 key={tech}
+                variants={fadeInUp}
                 className="px-3 py-1.5 sm:px-4 sm:py-2 bg-muted/50 rounded-full text-xs sm:text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 cursor-default"
-                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {tech}
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

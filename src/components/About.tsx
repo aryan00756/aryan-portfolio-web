@@ -1,29 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import { GraduationCap, Brain, Code, Eye } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import profileImage from '@/assets/aryan-profile.jpg';
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, viewportOptions } from '@/lib/animations';
 
 const About = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const timeline = [
     {
       year: '2023-Present',
@@ -58,16 +39,14 @@ const About = () => {
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      id="about"
-      className="py-20 bg-gradient-to-b from-background to-card/50"
-    >
+    <section id="about" className="py-20 bg-gradient-to-b from-background to-card/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        <motion.div
+          className="text-center mb-12 sm:mb-16"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
             About <span className="text-gradient-primary">Me</span>
@@ -76,14 +55,15 @@ const About = () => {
             Passionate about creating intelligent solutions that bridge the gap between 
             cutting-edge AI technology and practical real-world applications.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center max-w-6xl mx-auto">
           {/* Profile and Bio */}
-          <div
-            className={`transition-all duration-1000 delay-300 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-            }`}
+          <motion.div
+            variants={fadeInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
           >
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
               <div className="relative flex-shrink-0">
@@ -115,28 +95,33 @@ const About = () => {
                 </p>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
 
           {/* Timeline */}
-          <div
-            className={`transition-all duration-1000 delay-500 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-            }`}
+          <motion.div
+            variants={fadeInRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
           >
             <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center lg:text-left">
               Journey <span className="text-gradient-neural">Timeline</span>
             </h3>
-            <div className="space-y-4 sm:space-y-6">
+            <motion.div
+              className="space-y-4 sm:space-y-6"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOptions}
+            >
               {timeline.map((item, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className={`flex items-start gap-3 sm:gap-4 transition-all duration-500`}
-                  style={{ animationDelay: `${index * 200}ms` }}
+                  className="flex items-start gap-3 sm:gap-4"
+                  variants={fadeInUp}
                 >
                   <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6">
-                      {item.icon}
-                    </div>
+                    <div className="w-5 h-5 sm:w-6 sm:h-6">{item.icon}</div>
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-1 sm:mb-2">
@@ -147,10 +132,10 @@ const About = () => {
                     </div>
                     <p className="text-sm sm:text-base text-muted-foreground">{item.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
