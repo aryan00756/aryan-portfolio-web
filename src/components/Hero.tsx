@@ -1,16 +1,12 @@
+import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroBackground from '@/assets/hero-background.jpg';
 import profileImage from '@/assets/aryan-profile.jpg';
+import { fadeInUp, fadeInLeft, fadeInRight } from '@/lib/animations';
 
 const Hero = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -50,10 +46,11 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto min-h-screen py-16 sm:py-20">
           {/* Content */}
-          <div
-            className={`lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0 transition-all duration-1000 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+          <motion.div
+            className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0"
+            variants={fadeInLeft}
+            initial="hidden"
+            animate="visible"
           >
             <div className="mb-6 sm:mb-8">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-3 sm:mb-4 leading-tight">
@@ -129,13 +126,15 @@ const Hero = () => {
                 <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
               </Button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Profile Image */}
-          <div
-            className={`lg:w-1/2 flex justify-center transition-all duration-1000 delay-300 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+          <motion.div
+            className="lg:w-1/2 flex justify-center"
+            variants={fadeInRight}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 0.3 }}
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-30 animate-pulse-glow" />
@@ -144,12 +143,11 @@ const Hero = () => {
                 alt="Aryan Yadav"
                 className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary/30 animate-float"
               />
-              {/* Tech elements around image - responsive sizing */}
               <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 bg-neural rounded-full animate-pulse" />
               <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-4 h-4 sm:w-6 sm:h-6 bg-secondary rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
               <div className="absolute top-1/2 -left-4 sm:-left-8 w-3 h-3 sm:w-4 sm:h-4 bg-primary rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Scroll indicator */}
