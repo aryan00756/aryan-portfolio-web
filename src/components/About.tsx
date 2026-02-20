@@ -33,21 +33,27 @@ const About = () => {
     },
     {
       year: '2023',
-      title: 'ML Journey Begins',
-      description: 'Started deep dive into Machine Learning and Generative AI',
-      icon: <Brain className="w-6 h-6" />,
-    },
-    {
-      year: '2022',
       title: 'Frontend Development',
       description: 'Mastered modern web development technologies',
       icon: <Code className="w-6 h-6" />,
     },
     {
-      year: '2023',
+      year: '2024',
       title: 'Computer Vision',
       description: 'Explored computer vision applications and implementations',
       icon: <Eye className="w-6 h-6" />,
+    },
+    {
+      year: '2025',
+      title: 'ML Journey Begins',
+      description: 'Started deep dive into Machine Learning and Generative AI',
+      icon: <Brain className="w-6 h-6" />,
+    },
+    {
+      year: '2026',
+      title: 'Gen AI',
+      description: 'Exploring Generative AI models, LLMs and building intelligent applications',
+      icon: <Brain className="w-6 h-6" />,
     },
   ];
 
